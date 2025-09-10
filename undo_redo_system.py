@@ -3,7 +3,36 @@ from node import Node
 
 # Implement your Stack class here
 class Stack:
-    pass # delete this line
+
+    def __init__(self):
+        self.top = None
+
+    def push(self, value):
+        new_Node = Node(value)
+        new_Node.next = self.top
+        self.top = new_Node
+    
+    def pop(self):
+        if not self.top:
+            return None
+        removed_Node = self.top
+        self.top = self.top.next
+        return removed_Node.value
+
+    def peek(self):
+        if self.top:
+            return self.top.value
+        else:
+            return None
+
+    def print_stack(self):
+        current = self.top
+        if not current:
+            print('Stack is empty.')
+            return
+        while current:
+            print(f'- {current.value}')
+            current = current.next
 
 def run_undo_redo():
     # Create instances of the Stack class for undo and redo
