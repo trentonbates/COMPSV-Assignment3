@@ -36,7 +36,8 @@ class Stack:
 
 def run_undo_redo():
     # Create instances of the Stack class for undo and redo
-    
+    undo_stack = Stack()
+    redo_stack = Stack()
 
     while True:
         print("\n--- Undo/Redo Manager ---")
@@ -49,32 +50,35 @@ def run_undo_redo():
         choice = input("Select an option: ")
 
         if choice == "1":
-            action = input("Describe the action (e.g., Insert 'a'): ")
+            action = input("\nDescribe the action (e.g., Insert 'a'): ")
             # Push the action onto the undo stack and clear the redo stack
-
+            undo_stack.push(action)
+            redo_stack = Stack()
 
             print(f"Action performed: {action}")
         elif choice == "2":
             # Pop an action from the undo stack and push it onto the redo stack
-            pass # delete this line
-            
+            if not undo_stack.peek():
+                print('\nNo actions to undo.')
+            else:
+                redo_stack.push(undo_stack.pop())
 
         elif choice == "3":
             # Pop an action from the redo stack and push it onto the undo stack
-            pass # delete this line
-
+            if not redo_stack.peek():
+                print('\nNo actions to redo.')
+            else:
+                undo_stack.push(redo_stack.pop())
 
         elif choice == "4":
             # Print the undo stack
             print("\nUndo Stack:")
-            
-            
+            undo_stack.print_stack()
 
         elif choice == "5":
             # Print the redo stack
             print("\nRedo Stack:")
-            
-            
+            redo_stack.print_stack()
             
         elif choice == "6":
             print("Exiting Undo/Redo Manager.")
