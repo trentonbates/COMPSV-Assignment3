@@ -57,7 +57,7 @@ def run_help_desk():
             name = input("\nEnter customer name: ")
             # Add the customer to the queue
             queue.enqueue(name)
-            print(f"{name} added to the queue.")
+            print(f"\n{name} added to the queue.")
 
         elif choice == "2":
             # Help the next customer in the queue and return message that they were helped
@@ -65,7 +65,7 @@ def run_help_desk():
 
         elif choice == "3":
             # Peek at the next customer in the queue and return their name
-            print(f'Next customer in the queue: {queue.peek()}')
+            print(f'\nNext customer in the queue: {queue.peek()}')
 
         elif choice == "4":
             # Print all customers in the queue
@@ -73,10 +73,10 @@ def run_help_desk():
             queue.print_queue()
 
         elif choice == "5":
-            print("Exiting Help Desk System.")
+            print("\nExiting Help Desk System.")
             break
         else:
-            print("Invalid option.")
+            print("\nInvalid option.")
 
 if __name__ == "__main__":
     run_help_desk()

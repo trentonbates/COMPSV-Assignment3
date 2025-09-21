@@ -61,6 +61,7 @@ def run_undo_redo():
             if not undo_stack.peek():
                 print('\nNo actions to undo.')
             else:
+                print(f"\nUndid action: {undo_stack.peek()}")
                 redo_stack.push(undo_stack.pop())
 
         elif choice == "3":
@@ -68,6 +69,7 @@ def run_undo_redo():
             if not redo_stack.peek():
                 print('\nNo actions to redo.')
             else:
+                print(f"\nRedid action: {redo_stack.peek()}")
                 undo_stack.push(redo_stack.pop())
 
         elif choice == "4":
@@ -81,10 +83,10 @@ def run_undo_redo():
             redo_stack.print_stack()
             
         elif choice == "6":
-            print("Exiting Undo/Redo Manager.")
+            print("\nExiting Undo/Redo Manager.")
             break
         else:
-            print("Invalid option.")
+            print("\nInvalid option.")
 
 if __name__ == "__main__":
     run_undo_redo()

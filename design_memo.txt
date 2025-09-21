@@ -1,0 +1,20 @@
+1. Why is a stack the right choice for undo/redo?
+
+A stack is the right choice for undo/redo because of the Last In, First Out principle it follows.
+Whenever a user performs an action, that action is pushed onto the 'undo' stack. If an action is undone,
+the most recent action is popped off of the 'undo' stack and moved to the 'redo' stack. Vice versa, If
+the user redoes an action, it is popped off of the 'redo' stack and moved to the 'undo' stack. These
+actions are what is expected when using an actual undo/redo operation.
+
+2. Why is a queue better suited for the help desk?
+
+A queue is better suited for the help desk because of the First In, First Out principle it follows.
+As with a normal line or queue, the first person to submit a request should be the first person
+that is to receive help. A queue also helps keep things fair and keeps order with avoiding
+the problem of newer tickets or requests moving ahead of older ones.
+
+3. How do your implementations differ from Python's built-in lists?
+
+While lists in Python can be used as both stacks and queues, it is not the most efficient way of using them.
+Removing an element from the front of a list, using the pop() method is more complex than our implementation
+of the dequeue() method.
